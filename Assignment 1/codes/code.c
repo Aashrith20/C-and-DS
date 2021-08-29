@@ -16,10 +16,7 @@ int maxsum_subarray(int arr[], int start,int end)
     
     int leftsubarray_max = maxsum_subarray(arr,start,mid);
     int rightsubarray_max = maxsum_subarray(arr,mid+1,end);
-    // printf("left\n");
-    // printf("%d %d %d\n",leftsubarray_max,start,mid);
-    // printf("right\n");
-    // printf("%d %d %d\n",rightsubarray_max,mid+1,end);
+	
     int left_sum = INT_MIN;
     int right_sum = INT_MIN;
     int temp_sum = 0;
@@ -34,14 +31,14 @@ int maxsum_subarray(int arr[], int start,int end)
         temp_sum = temp_sum + arr[i];
         right_sum = max(right_sum,temp_sum);
     }
-    // printf("%d , %d",left_sum,right_sum);
+
     return max(max(leftsubarray_max,rightsubarray_max),left_sum+right_sum);
 }
 
 int main()
 {
-	int arr[] = {-5,-10,6,3,-1,-2,13,4,-9,-1,4,12,-3,0};
+    int arr[] = {-5,-10,6,3,-1,-2,13,4,-9,-1,4,12,-3,0};
     int ans = maxsum_subarray(arr,0,13);
     printf("%d \n",ans);
-	return 0;
+    return 0;
 }
