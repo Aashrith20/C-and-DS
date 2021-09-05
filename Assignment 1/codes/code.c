@@ -14,18 +14,23 @@ int maxsum_subarray(int arr[], int start,int end)
     }
     int mid = (start+end)/2;
     
+    // Calculation of max Sum Subsequence in left subarray
     int leftsubarray_max = maxsum_subarray(arr,start,mid);
+	
+    // Calculation of max Sum Subsequence in right subarray
     int rightsubarray_max = maxsum_subarray(arr,mid+1,end);
 	
     int left_sum = INT_MIN;
     int right_sum = INT_MIN;
     int temp_sum = 0;
+    // Calculation of max sum of subsequence of left subarray ending with index mid
     for(int i=mid;i>=start;i--)
     {
         temp_sum = temp_sum + arr[i];
         left_sum = max(left_sum,temp_sum);
     }
     temp_sum = 0;
+    // Calculation of max sum of subsequence of right subarray starting with index mid+1
     for(int i=mid+1;i<=end;i++)
     {
         temp_sum = temp_sum + arr[i];
